@@ -16,7 +16,7 @@ public class ApiServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1042412442755277478L;
 	private static EmployeeHibernateApi api;
-
+	
 	static {
 		HibernateUtil.configure();
 		api = new EmployeeHibernateApi();

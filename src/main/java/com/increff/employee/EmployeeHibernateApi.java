@@ -55,6 +55,16 @@ public class EmployeeHibernateApi {
 	
 	public void update(int id, EmployeePojo p) throws SQLException{
 		//TODO implement this method
+		logger.info("updating an employee");
+		hbu.createSession();
+		hbu.beginTransaction();
+		Session s = hbu.getSession();
+		EmployeePojo o = s.find(EmployeePojo.class, id);
+		o.setName(p.getName());
+		o.setAge(p.getAge());
+		s.save(o);
+		hbu.commitTransaction();
+		hbu.closeSession();
 	}
 
 	public void delete(int id) throws SQLException {
